@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <title>View Results</title>
+</head>
+<body style="background-color: #d3d3d3;">
+  <header class="bg-blue-500 p-4">
+    <nav class="container mx-auto flex justify-between items-center">
+      <div class="text-white text-lg font-bold">
+        <a href="{{ url_for('voter.index') }}">Voting System</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container mx-auto mt-10">
+    <div class="bg-gradient-to-r from-green-200 to-green-400 p-6 rounded-lg shadow-lg">
+      <h1 class="text-3xl font-bold text-center">Voting Results</h1>
+      <div class="mt-8">
+        <p class="text-lg">Here are the results of the voting session:</p>
+        <table class="min-w-full mt-4">
+          <thead>
+            <tr>
+              <th class="border px-4 py-2">Candidate</th>
+              <th class="border px-4 py-2">Votes</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for candidate, votes in results %}
+            <tr>
+              <td class="border px-4 py-2">{{ candidate }}</td>
+              <td class="border px-4 py-2">{{ votes }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

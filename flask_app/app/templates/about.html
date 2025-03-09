@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <title>About Us</title>
+</head>
+<body>
+  <header class="bg-blue-500 p-4">
+    <nav class="container mx-auto flex justify-between items-center">
+      <div class="text-white text-lg font-bold">
+        <a href="{{ url_for('voter.index') }}">Voting System</a>
+      </div>
+      <ul class="flex space-x-4">
+        <li><a href="{{ url_for('voter.index') }}" class="text-white hover:underline">Home</a></li>
+        <li><a href="{{ url_for('voter.about') }}" class="text-white hover:underline">About</a></li>
+        <li><a href="{{ url_for('voter.candidates') }}" class="text-white hover:underline">Candidates</a></li>
+        <li><a href="{{ url_for('voter.importance') }}" class="text-white hover:underline">Importance</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="container mx-auto mt-10">
+    <h1 class="text-3xl font-bold">About Us</h1>
+    <p class="mt-4">
+      This voting system allows users to vote for their preferred candidates in a simple and efficient manner.
+    </p>
+  </div>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Voting Results</title>
+</head>
+<body>
+  <h1>Results for Session {{ session_id }}</h1>
+  <ul>
+    {% for option, count in results %}
+      <li>{{ option }}: {{ count }} votes</li>
+    {% endfor %}
+  </ul>
+  <a href="{{ url_for('voter.index') }}">Back to Voting</a>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <title>Admin Dashboard</title>
+</head>
+<body style="background-color: #d3d3d3;">
+  <header class="bg-blue-500 p-4">
+    <nav class="container mx-auto flex justify-between items-center">
+      <div class="text-white text-lg font-bold">
+        <a href="{{ url_for('index') }}">Voting System</a>
+      </div>
+    </nav>
+  </header>
+  <div class="container mx-auto mt-10 text-center">
+    <h1 class="text-3xl font-bold">Admin Dashboard</h1>
+    <p>Welcome to the admin dashboard!</p>
+    <div class="mt-8 flex flex-col space-y-4">
+      <a href="{{ url_for('admin.release_results') }}" class="w-full bg-blue-600 text-white py-4 rounded-md text-xl hover:bg-blue-700 transition duration-300">
+        Release Result
+      </a>
+      <a href="{{ url_for('admin.view_results') }}" class="w-full bg-blue-600 text-white py-4 rounded-md text-xl hover:bg-blue-700 transition duration-300">
+        View Result
+      </a>
+      <a href="{{ url_for('admin.create_session') }}" class="w-full bg-blue-600 text-white py-4 rounded-md text-xl hover:bg-blue-700 transition duration-300">
+        Create Voting Session
+      </a>
+    </div>
+  </div>
+</body>
+</html>

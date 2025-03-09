@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <title>Candidates</title>
+</head>
+<body>
+  <div class="taskbar">
+    <header class="bg-blue-500 p-4">
+      <nav class="container mx-auto flex justify-between items-center">
+        <div class="text-white text-lg font-bold flex items-center">
+          <img src="{{ url_for('static', filename='logo4b.png') }}" alt="team logo" style="width: 100px; height: auto;" class="mr-2">
+          <span style="font-size: 50px;">4Byte</span>
+        </div>
+        <ul class="flex space-x-4">
+          <li><a href="{{ url_for('voter.home') }}" class="text-white hover:underline text-lg">Home</a></li>
+          <li><a href="{{ url_for('voter.about') }}" class="text-white hover:underline text-lg">About</a></li>
+          <li><a href="{{ url_for('voter.importance') }}" class="text-white hover:underline text-lg">Importance</a></li>
+        </ul>
+      </nav>
+    </header>
+  </div>
+
+  <div class="container mx-auto mt-10" style="display: flex; align-items: center; height: calc(100vh - 50px);">
+    <div class="bg-gradient-to-r from-blue-200 to-blue-400 p-6 rounded-lg shadow-lg">
+      <h1 class="text-3xl font-bold">Candidates</h1>
+      {% if candidates %}
+        <ul class="mt-4">
+          {% for candidate in candidates %}
+            <li class="border p-2 my-2">{{ candidate }}</li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p class="mt-4">No candidates found.</p>
+      {% endif %}
+    </div>
+  </div>
+</body>
+</html>

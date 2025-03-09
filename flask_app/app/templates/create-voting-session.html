@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <title>Create Voting Session</title>
+</head>
+<body style="background-color: #d3d3d3;">
+  <header class="bg-blue-500 p-4">
+    <nav class="container mx-auto flex justify-between items-center">
+      <div class="text-white text-lg font-bold">
+        <a href="{{ url_for('voter.index') }}">Voting System</a>
+      </div>
+    </nav>
+  </header>
+  <div class="container mx-auto mt-10">
+    <div class="bg-gradient-to-r from-green-200 to-green-400 p-6 rounded-lg shadow-lg">
+      <h1 class="text-3xl font-bold text-center">Create Voting Session</h1>
+      <form class="mt-8 max-w-lg mx-auto" method="POST">
+        {{ form.hidden_tag() }}
+        <div class="mb-4">
+          <label for="start-time" class="block text-lg">Start Date and Time:</label>
+          {{ form.start_time(class="border border-gray-300 rounded p-2 w-full", id="start-time") }}
+        </div>
+        <div class="mb-4">
+          <label for="end-time" class="block text-lg">End Date and Time:</label>
+          {{ form.end_time(class="border border-gray-300 rounded p-2 w-full", id="end-time") }}
+        </div>
+        <div class="mb-4">
+          <label for="num-candidates" class="block text-lg">Number of Candidates:</label>
+          {{ form.num_candidates(class="border border-gray-300 rounded p-2 w-full", id="num-candidates") }}
+        </div>
+        <div id="candidate-names" class="mb-4">
+          <label class="block text-lg">Candidate Names:</label>
+          <div class="flex flex-col" id="candidate-inputs">
+            <!-- Candidate input rendered from WTForm -->
+            {{ form.candidate_name(class="border border-gray-300 rounded p-2 mb-2", placeholder="Candidate Name") }}
+          </div>
+          <button type="button" id="add-candidate" class="bg-blue-600 text-white rounded p-2 mt-2">Add Another Candidate</button>
+        </div>
+        <button type="submit" class="bg-blue-600 text-white rounded p-2 w-full">Create Voting Session</button>
+      </form>
+    </div>
+  </div>
+  <script>
+    document.getElementById('add-candidate').addEventListener('click', function() {
+      const candidateInputs = document.getElementById('candidate-inputs');
+      const newDiv = document.createElement('div');
+      newDiv.className = 'flex flex-col';
+      const newInput = document.createElement('input');
+      newInput.type = 'text';
+      newInput.name = 'candidate_name';
+      newInput.className = 'border border-gray-300 rounded p-2 mb-2';
+      newInput.placeholder = 'Candidate Name';
+      newInput.required = true;
+      newDiv.appendChild(newInput);
+      candidateInputs.appendChild(newDiv);
+    });
+  </script>
+</body>
+</html>
